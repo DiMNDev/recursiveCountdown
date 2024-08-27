@@ -19,12 +19,12 @@ static async Task PrintCount(int currentNumber)
     Task.Delay(500);
     if (currentNumber == 0)
     {
-        Console.Beep(600, 700);
         Console.WriteLine("BLAST OFF! 🚀");
+        Console.Beep(600, 700);
     }
     else
     {
-        Console.Beep(400, 500);
         Console.WriteLine(currentNumber);
+        Console.Beep(400, 500);
     }
 }

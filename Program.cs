@@ -1,28 +1,30 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System.Threading.Tasks;
 
-Timer _timer;
-void countDownFromNumber(int countDownFrom = 10, int currentNumber = -1)
+async void CountDownFromNumber(int countDownFrom = 10, int currentNumber = -1)
 {
     if (currentNumber < countDownFrom)
     {
-        countDownFromNumber(countDownFrom, currentNumber + 1);
+        CountDownFromNumber(countDownFrom, currentNumber + 1);
         currentNumber++;
-        printCount(currentNumber);
-        if (currentNumber == 0)
-        {
-            Console.Beep(600, 700);
-            Console.WriteLine("BLAST OFF! 🚀");
-        }
+        await PrintCount(currentNumber);
     }
 
 }
 
-countDownFromNumber(10);
+CountDownFromNumber(10);
 
-static async Task printCount(int currentNumber)
+static async Task PrintCount(int currentNumber)
 {
-    Task.Delay(1000);
-    Console.Beep(400, 400);
-    Console.WriteLine(currentNumber);
+    Task.Delay(500);
+    if (currentNumber == 0)
+    {
+        Console.Beep(600, 700);
+        Console.WriteLine("BLAST OFF! 🚀");
+    }
+    else
+    {
+        Console.Beep(400, 500);
+        Console.WriteLine(currentNumber);
+    }
 }
